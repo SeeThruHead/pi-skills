@@ -40,8 +40,8 @@ RUN curl -fsSL https://go.dev/dl/go1.24.1.linux-amd64.tar.gz | tar -C /usr/local
 ENV PATH="/usr/local/go/bin:/root/go/bin:${PATH}"
 
 # tk CLI (ticket management — used by autonomous-dev skill)
-COPY tk /usr/local/bin/tk
-RUN chmod +x /usr/local/bin/tk
+RUN curl -fsSL https://raw.githubusercontent.com/wedow/ticket/main/tk -o /usr/local/bin/tk \
+    && chmod +x /usr/local/bin/tk
 
 # Pi
 RUN npm install -g @mariozechner/pi-coding-agent
